@@ -15,7 +15,7 @@ class WineController extends Controller
     public function index()
     {
         $wines = Wine::all();
-        dd($wines);
+        // dd($wines);
         return view('wines.index', compact('wines'));
     }
 
