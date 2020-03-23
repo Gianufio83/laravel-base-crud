@@ -8,7 +8,7 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>Lista Cantina</h1>
+  <h1>Lista Vini</h1>
   <table class="table">
   <thead>
     <tr>
