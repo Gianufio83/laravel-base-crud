@@ -16,9 +16,9 @@ class CreateWinesTable extends Migration
         Schema::create('wines', function (Blueprint $table) {
             $table->id();
             $table->string('cantina', 60);
-            $table->string('produttore', 50);
+            $table->string('etichetta', 100);
             $table->char('vitigno', 80);
-            $table->date('anno');
+            $table->string('anno', 4);
             $table->longText('descrizione');
             $table->float('prezzo',8,2);
             $table->timestamps();
