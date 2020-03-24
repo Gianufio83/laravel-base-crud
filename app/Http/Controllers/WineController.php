@@ -7,6 +7,15 @@ use Illuminate\Http\Request;
 
 class WineController extends Controller
 {
+    private $validationShoe = [
+        'cantina' => 'required|string|max:60',
+        'etichetta' => 'required|string|max:100',
+        'vitigno' => 'required|string|max:80',
+        'anno' => 'required|max:4',
+        'descrizione' => 'required|',
+        'prezzo' => 'required|numeric|min:1|max:9999.99'
+    ];
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +24,7 @@ class WineController extends Controller
     public function index()
     {
         $wines = Wine::all();
-        // dd($wines);
+      
         return view('wines.index', compact('wines'));
     }
 
@@ -38,6 +47,15 @@ class WineController extends Controller
     public function store(Request $request)
     {
         $data= $request->all();
+
+        $request->validate([
+            'cantina' => 'required|string|max:60',
+            'etichetta' => 'required|string|max:100',
+            'vitigno' => 'required|string|max:80',
+            'anno' => 'required|max:4',
+            'descrizione' => 'required|',
+            'prezzo' => 'required|numeric|min:1|max:9999.99'
+        ]);
 
         $wine = new Wine;
 
