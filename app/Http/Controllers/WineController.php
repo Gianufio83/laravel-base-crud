@@ -137,15 +137,15 @@ class WineController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-      public function destroy()
+      public function destroy(Wine $wine)
     {
-        // $id = $shoe->id;
-        // $deleted = $shoe->delete();
-        // $data = [
-        //     'id' => $id,
-        //     'shoes' => Shoe::all()
-        // ];
+        $id = $wine->id;
+        $deleted = $wine->delete();
+        $data = [
+            'id' => $id,
+            'wines' => wine::all()
+        ];
 
-        // return view('shoes.index', $data);
+        return view('wines.index', $data);
     }
 }

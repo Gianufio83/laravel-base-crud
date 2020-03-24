@@ -12,6 +12,7 @@
       <th scope="col">Anno</th>
       <th scope="col">Descrizione</th>
       <th scope="col">Prezzo</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -23,6 +24,13 @@
         <td>{{$wine->anno}}</td>
         <td>{{$wine->descrizione}}</td>
         <td>{{$wine->prezzo}},€</td>
+        <td>
+          <form action="{{route('wines.destroy', $wine->id)}}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button class="btn btn-danger" type="submit">DELETE</button>
+          </form>
+        </td>
       </tr>
     @endforeach
   </tbody>
