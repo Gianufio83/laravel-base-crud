@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class WineController extends Controller
 {
-    private $validationShoe = [
+    private $validationWine = [
         'cantina' => 'required|string|max:60',
         'etichetta' => 'required|string|max:100',
         'vitigno' => 'required|string|max:80',
@@ -99,13 +99,13 @@ class WineController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-   public function edit()
+   public function edit(Wine $wine)
     {
-    //     if (empty($wine)) {
-    //         abort('404');
-    //     }
+        if (empty($wine)) {
+            abort('404');
+        }
 
-    //     return view('wines.create', compact('wine'));
+        return view('wines.create', compact('wine'));
     }
 
     /**
@@ -116,19 +116,18 @@ class WineController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-     {
-    //     $shoe = Shoe::find($id);
-    //     if(empty($shoe)) {
-    //         abort('404');
-    //     }
-
-    //     $data = $request->all();
-    //     $request->validate($this->validationShoe);
-    //     $updated = $shoe->update($data);
-    //     if ($updated) {
-    //         $shoe = Shoe::find($id);
-    //         return redirect()->route('shoes.show', compact('shoe'));
-    //     }
+    {
+        $wine = Wine::find($id);
+        if (empty($wine)) {
+            abort('404');
+        }
+        $data = $request->all();
+        $request->validate($this->validationWine);
+        $updated = $wine->update($data);
+        if ($updated) {
+            $wine = Wine::find($id);
+            return redirect()->route('wines.show', compact('wine'));
+        }
     }
 
     /**

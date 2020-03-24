@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="stylesheet" href="{{asset('css/app.css')}}">
-  <title>Document</title>
+  <title>Cantina di vini</title>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark  fixed-top">
@@ -19,12 +19,9 @@
       <a class="nav-link" href="{{route('wines.index')}}">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{route('wines.create')}}">Create</a>
+        <a class="nav-link" href="{{route('wines.create')}}">Create/Update</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link " href="#">Update</a>
-      </li>
-    </ul>
+      </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
